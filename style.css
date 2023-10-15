@@ -1,0 +1,134 @@
+
+ html{
+  background-image: url("https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214755&authkey=%21AEr-CXUzDvc7cm4&width=880&height=512");
+  height: 800px;
+}
+
+#content{
+display: block;
+position: absolute;
+}
+
+
+#gallery{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin-left: 10%;
+  width: 80%;
+  justify-content: space-between;
+  padding-top: -20px;
+  z-index: 1;
+}
+
+.image {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 25%;
+  perspective:50cm;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.image img{
+  width: 100%;
+  height: auto;
+}
+
+.pic:hover{
+  transform: rotate3d(0.5, -0.2, 0, 30deg);
+}
+
+
+.button{
+  width: 100px;
+  height: 300px;
+  z-index: 2;
+  position: relative;
+  font-size: 5em;
+}
+
+.button:hover{
+  width: 12%;
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(215, 212, 235, 0.6)) */
+}
+
+#right{
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(146, 221, 228));
+  float: right;
+  margin-right: -10px;
+  text-align: right;
+  animation: rightCol 5s linear 2s infinite;
+
+}
+
+#left{
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(146, 221, 228));
+  float: left;
+  margin-left: -10px;
+  text-align: left;
+  animation: leftCol 5s linear 2s infinite;
+}
+
+@keyframes rightCol {
+  from {  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(146, 221, 228));
+    color: rgb(169, 179, 196);
+  }
+  to {  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(215, 212, 235, 0.6));
+    color: rgb(247, 247, 247)
+  }
+}
+
+@keyframes leftCol {
+  from {  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(146, 221, 228));
+    color: rgb(169, 179, 196)
+  }
+  to {  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(126, 137, 189, 0.6));
+  color: rgb(247, 247, 247)
+  }
+}
+
+.content{
+  background-color: #c5e6e8;
+  position: absolute;
+  float:left;
+  left: 0;
+  padding-top: 60px;
+  margin-top: 0px;
+}
+
+/* style content */
+
+#title{
+  font: italic small-caps bold 16px/2 cursive;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.insideBox{
+  padding-left: 20%;
+  width: 60%;
+}
+
+.content p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: large;
+  padding:40px;
+}
+
+iframe{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p5{
+  width:auto;
+  height:700px;
+}
+
+
+
+

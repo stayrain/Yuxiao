@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.8.10/themes/smoothness/jquery-ui.css" type="text/css">
+  <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js"></script>  
+  <meta charset="utf-8">
+</head>
+
+<button id="left" class="button" onmouseenter="minus()" onmouseleave="notEnter()"><</button>
+<button id="right" class="button" onmouseenter="plus()" onmouseleave="notEnter()">></button>
+   <div id="gallery">
+    <div id="box0" onmouseenter ="enter(this)" onmouseleave="leave(this)" class="image"><img class="pic" src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214390&amp;authkey=%21ADxV0F8iiRev_Bg&amp;width=596&amp;height=799"><div class="content" style="display: none;"><p id="title"> "Ears" Motifi pattern </p> <p> Coding to design patterns is a new way for me, especially I found computer can easily repeat, which is a language always used in textiles design. And this repeat brokes what I initially drawing, forms another feeling of abstraction. </p><div class="insideBox"></div> <p> In this drawing, I began to draw a ear, and repeat eyes with different sizes, finally add little connections between them. </p></div></div>
+    <div id="box1" onmouseenter ="enter(this)" onmouseleave="leave(this)" class="image"><img class="pic" src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214224&amp;authkey=%21APdUNXDJb3G76Aw&amp;width=520&amp;height=743"><div class="content" style="display: none;"><p id="title">Self-portrait </p><div class="insideBox"></div><p> This drawing is created by p5.js, an interesting javascript library, and in this drawing I illustrate myself, highlight the hair style that was created by random function in p5; </p></div></div>
+    <div id="box2" onmouseenter ="enter(this)" onmouseleave="leave(this)" class="image"><img class="pic" src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214168&amp;authkey=%21AENqOC6tFekOKn8&amp;width=793&amp;height=778"><div class="content" style="display: none; left: -200%;"><p id="title">Ine no Funaya Houses伊根の舟屋 </p> <p> It's inspired from the houses on the seaside of Kyoto, a place that fascinated me for a long time, as I have watched many Anime from childhood. Moreover, Japanese culture is one of my favorite topics. </p><div class="insideBox"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214660&authkey=%21AF8M-5uBODu4gs8&width=1024&height=680"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214661&authkey=%21AFyD6rekyedGPU4&width=1024&height=683"></div> <p> It's also result in my color chosing for this drawing, which I think is because I just watched the film "isle of Dogs". </p><div class="insideBox"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214662&authkey=%21AGyUw-BvMMksaIc&width=1024&height=658"></div> <p> This drawing was created by p5, and I try to solve the "path finding question", to build a bridge between houses everytime refreshing with a different location</p><div class="insideBox"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214167&authkey=%21AFk-RUuC9Cd5T-8&width=793&height=778"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214168&authkey=%21AENqOC6tFekOKn8&width=793&height=778"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214168&authkey=%21AENqOC6tFekOKn8&width=793&height=778"></div></div></div>
+    <div id="box3" onmouseenter ="enter(this)" onmouseleave="leave(this)" class="image"><img class="pic" src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214177&amp;authkey=%21AAhxeoCDWfz-5eY&amp;width=1424&amp;height=1480"><div class="content" style="display: none; left: -200%;"><p id="title">instruction drawing </p><p>I followed instructions of the artist "Sol LeWitt" to draw on openframeworks, a c++ library. </p><div class="insideBox"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214177&authkey=%21AAhxeoCDWfz-5eY&width=1424&height=1480"><img src="https://onedrive.live.com/embed?resid=F7F7747119C9C73F%214653&authkey=%21AFQTxXqmupK-61I&width=1884&height=1120"></div>
+</div></div>
+  </div> 
+</div>
+
+<script>
+  let num = 0;
+  var time;
+  function plus(){
+    time = setInterval(function(){
+      scrollImage(num)
+      num ++;
+    },1500)
+  }
+
+  function minus(){
+    time = setInterval(function(){
+      scrollImage(num)
+      num --;
+    },1500)
+  }
+
+  function notEnter(){
+    clearInterval(time);
+  }
+
+
+  async function scrollImage() {
+    const response = await fetch('content.json');
+    const data = await response.json();
+      for (let i = 0; i < 4; i++) {
+        mBox = document.getElementById(`box${i}`);
+        mBox.children[0].src = data[i+num].H;
+        mBox.children[1].innerHTML = data[i+num].M;
+      }
+    }
+  function enter(m){
+    m.children[1].style.display = "block";
+  }
+  function leave(m){
+    m.children[1].style.display = "none";
+  }
+  </script>
+
+</html>
